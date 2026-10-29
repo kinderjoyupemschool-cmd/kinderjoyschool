@@ -1121,6 +1121,26 @@ ul {
   background-color: var(--primary);
 }
 
+.float-btn.scroll-top {
+  background-color: var(--secondary);
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px) scale(0.85);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.float-btn.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.float-btn.scroll-top:hover {
+  background-color: var(--secondary-dark);
+}
+
 .float-btn:hover {
   transform: scale(1.1) translateY(-4px);
 }
