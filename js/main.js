@@ -133,4 +133,37 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Scroll Reveal Animations for Feature Cards
+  const featureCards = document.querySelectorAll('.feature-card');
+  if (featureCards.length) {
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const cardObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('revealed');
+          }, index * 120);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    featureCards.forEach(card => cardObserver.observe(card));
+  }
+
+  // Auto Slider for Facility Card (2-second interval smooth transition)
+  const facilitySlides = document.querySelectorAll('.facility-slider-card .card-slide');
+  if (facilitySlides.length > 1) {
+    let currentSlide = 0;
+    setInterval(() => {
+      facilitySlides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % facilitySlides.length;
+      facilitySlides[currentSlide].classList.add('active');
+    }, 2000);
+  }
 });
