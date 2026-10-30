@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.kinderjoyschool.co.in/sitemap.xml
+
