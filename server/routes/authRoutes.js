@@ -11,26 +11,13 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ success: false, message: 'Please provide email and password' });
     }
 
-    const defaultEmail = (process.env.ADMIN_EMAIL || 'principal@kinderjoyschool.co.in').toLowerCase();
-    const defaultPassword = process.env.ADMIN_PASSWORD || 'admin@kinderjoy2026';
-
-    let admin = null;
-    let isMatch = false;
-
-    try {
-      admin = await Admin.findOne({ email: email.toLowerCase() });
-      if (admin) {
-        isMatch = await admin.matchPassword(password);
-      }
-    } catch (dbErr) {
-      // Memory fallback if DB offline
+    // Authenticate strictly against MongoDB Atlas
+    const admin = await Admin.findOne({ email: email.toLowerCase() });
+    if (!admin) {
+      return res.status(401).json({ success: false, message: 'Invalid email or password' });
     }
 
-    if (!isMatch && email.toLowerCase() === defaultEmail && password === defaultPassword) {
-      isMatch = true;
-      admin = { _id: 'master-admin', email: defaultEmail, name: 'Principal / Admin' };
-    }
-
+    const isMatch = await admin.matchPassword(password);
     if (!isMatch) {
       return res.status(401).json({ success: false, message: 'Invalid email or password' });
     }
