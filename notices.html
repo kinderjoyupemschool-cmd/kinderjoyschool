@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notices & Examination Schedules | Kinder Joy E.M.U.P. School Rayachoty</title>
+  <meta name="description" content="View class-wise official examination timetables (FA-1 to SA-2), syllabus portions, and assessment schedules for Playgroup to Class 7 at Kinder Joy E.M.U.P. School, Rayachoty.">
+  <link rel="canonical" href="https://www.kinderjoyschool.co.in/notices.html">
+  <link rel="icon" type="image/png" href="assets/logo-icon.png">
+  <link rel="shortcut icon" type="image/png" href="assets/logo-icon.png">
+
+  <!-- Google Fonts: Matching index.html Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/portal.css">
+</head>
+<body style="background: #f8fafc; font-family: 'Inter', sans-serif;">
+
+  <!-- Top Announcement / Scrolling News Ticker -->
+  <div class="top-bar">
+    <div class="ticker-badge">
+      <i class="fas fa-bullhorn"></i> <span>Updates</span>
+    </div>
+    <div class="ticker-container">
+      <div class="ticker-track">
+        <span class="ticker-item"><i class="fas fa-graduation-cap"></i> <strong>Admissions Open:</strong> Playgroup, Nursery, LKG, UKG &amp; Classes 1st to 7th</span>
+        <span class="ticker-divider">&bull;</span>
+        <span class="ticker-item"><i class="fas fa-phone-alt"></i> <strong>Call Admission Office:</strong> <a href="tel:+919133554870">+91 91335 54870</a></span>
+        <span class="ticker-divider">&bull;</span>
+        <span class="ticker-item"><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:principal@kinderjoyschool.co.in">principal@kinderjoyschool.co.in</a></span>
+        <span class="ticker-divider">&bull;</span>
+        <span class="ticker-item"><i class="fas fa-clock"></i> <strong>Office Timings:</strong> Monday – Saturday, 9:00 AM – 5:00 PM</span>
+        <span class="ticker-divider">&bull;</span>
+        <span class="ticker-item"><i class="fas fa-map-marker-alt"></i> <strong>Campus:</strong> 51/161-1-1, NGO Colony, Kothapeta, Rayachoty, A.P.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-brand" aria-label="Kinder Joy Home">
+        <img src="assets/logo.png" alt="Kinder Joy E.M.U.P. School Logo">
+      </a>
+      
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html#about" class="nav-link">About Us</a>
+        <a href="index.html#academics" class="nav-link">Academics</a>
+        <a href="notices.html" class="nav-link active">Notices &amp; Exams</a>
+        <a href="index.html#facilities" class="nav-link">Facilities</a>
+        <a href="index.html#gallery" class="nav-link">Gallery</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+        <a href="login.html" class="btn btn-primary" style="padding: 9px 20px; font-size: 0.9rem; font-weight: 700;">
+          <i class="fas fa-user-lock"></i> Staff Login
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section (Harmonized with index.html Academics Hero) -->
+  <section class="section" style="padding: 38px 0 32px 0; background: linear-gradient(135deg, #0a4f8a 0%, #063763 100%); color: #ffffff; text-align: center; position: relative;">
+    <div class="container" style="max-width: 960px;">
+      <span class="hero-tag" style="background: rgba(255, 255, 255, 0.15); color: #ffd166; border: 1px solid rgba(255, 255, 255, 0.25); margin-bottom: 12px; font-size: 0.76rem; padding: 4px 14px;">
+        <i class="fas fa-id-card-alt"></i> STUDENT &amp; PARENT PORTAL
+      </span>
+      <h1 class="hero-title" style="color: #ffffff; font-size: clamp(1.6rem, 3.8vw, 2.2rem); margin-bottom: 8px; font-weight: 800;">
+        Notices &amp; Examination Schedules
+      </h1>
+      <p class="hero-subtitle" style="max-width: 640px; margin: 0 auto; color: #e2e8f0; font-size: clamp(0.88rem, 2vw, 0.98rem); line-height: 1.5;">
+        Select your child's Class and Assessment Type below to view the official schedule and syllabus portions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Timetable Content with 2-Dropdown Filter Bar -->
+  <main class="exam-content-section" style="padding: 24px 0 60px 0; background: #f8fafc;">
+    <div class="container" style="max-width: 1040px;">
+
+      <!-- Clean 2-Dropdown Filter Bar -->
+      <div class="timetable-filter-card">
+        <!-- 1. Select Class -->
+        <div class="filter-field">
+          <label for="classSelect"><i class="fas fa-graduation-cap"></i> Select Class</label>
+          <select id="classSelect" class="filter-select">
+            <option value="" disabled selected>-- Select Class --</option>
+            <option value="Playgroup">Playgroup</option>
+            <option value="Nursery">Nursery</option>
+            <option value="LKG">LKG</option>
+            <option value="UKG">UKG</option>
+            <option value="Class 1">Class 1</option>
+            <option value="Class 2">Class 2</option>
+            <option value="Class 3">Class 3</option>
+            <option value="Class 4">Class 4</option>
+            <option value="Class 5">Class 5</option>
+            <option value="Class 6">Class 6</option>
+            <option value="Class 7">Class 7</option>
+          </select>
+        </div>
+
+        <!-- 2. Select Exam -->
+        <div class="filter-field">
+          <label for="examSelect"><i class="fas fa-clipboard-check"></i> Select Assessment</label>
+          <select id="examSelect" class="filter-select">
+            <option value="" disabled selected>-- Select Assessment --</option>
+            <option value="FA-1">FA-1 (Formative Assessment 1)</option>
+            <option value="FA-2">FA-2 (Formative Assessment 2)</option>
+            <option value="FA-3">FA-3 (Formative Assessment 3)</option>
+            <option value="FA-4">FA-4 (Formative Assessment 4)</option>
+            <option value="SA-1">SA-1 (Summative Assessment 1 / Half-Yearly)</option>
+            <option value="SA-2">SA-2 (Summative Assessment 2 / Annual)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Timetable Matrix Card -->
+      <div class="timetable-card" id="timetableCard" style="background: #ffffff; border-radius: 16px; border: 1.5px solid #e2e8f0; box-shadow: 0 4px 20px rgba(15, 28, 46, 0.06); overflow: hidden;">
+        <div class="timetable-card-header" style="background: #0a4f8a; color: #ffffff; padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+          <h3 class="timetable-card-title" id="timetableTitle" style="font-family: 'Outfit', sans-serif; font-size: 1.28rem; font-weight: 700; margin: 0; color: #ffffff;">
+            <i class="fas fa-clipboard-list" style="margin-right: 8px; color: #ffd166;"></i>
+            FA-2 Formative Assessment - Class 3 Schedule
+          </h3>
+          <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+            <span class="timetable-card-badge" id="examDateRangeBadge" style="background: rgba(255, 255, 255, 0.18); padding: 6px 14px; border-radius: 9999px; font-size: 0.82rem; font-weight: 700;">Exam Dates: Status Awaited</span>
+            <button type="button" id="whatsappShareBtn" class="btn-share-whatsapp" style="display: none; background: #25D366; color: #ffffff; border: none; padding: 7px 15px; border-radius: 9999px; font-weight: 700; font-size: 0.82rem; cursor: pointer; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(37, 211, 102, 0.35);">
+              <i class="fab fa-whatsapp" style="font-size: 1rem;"></i> Share on WhatsApp
+            </button>
+          </div>
+        </div>
+
+        <div class="timetable-table-responsive">
+          <table class="timetable-table" id="timetableTable">
+            <thead>
+              <tr>
+                <th class="th-subject">Subject</th>
+                <th class="th-datetime">Date &amp; Time</th>
+                <th class="th-syllabus">Syllabus</th>
+              </tr>
+            </thead>
+            <tbody id="timetableBody">
+              <!-- Dynamically populated in real-time -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Instructions Callout -->
+        <div class="instructions-callout" id="examInstructionsBox" style="background: #f0f7ff; border-top: 1px solid #dbeafe; border-left: 4px solid #0a4f8a; padding: 18px 24px;">
+          <h4 style="font-family: 'Outfit', sans-serif; font-size: 0.95rem; font-weight: 800; color: #0a4f8a; margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-info-circle" style="color: #0a4f8a;"></i> Examination Guidelines &amp; Instructions:
+          </h4>
+          <ul id="instructionsList" style="margin: 0; padding-left: 20px; color: #334155; font-size: 0.88rem; line-height: 1.6;">
+            <li>Students must be present in full formal school uniform by <strong>09:15 AM</strong>.</li>
+            <li>No student will be permitted into the examination hall after <strong>09:45 AM</strong>.</li>
+            <li>Bring student ID card, writing pad, and complete stationery pouch. Borrowing is strictly prohibited.</li>
+            <li>Parents are requested to verify their child's preparation and sign the assessment diary daily.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer (Identical to index.html) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="Kinder Joy E.M.U.P. School">
+          <p>
+            Kinder Joy English Medium Upper Primary School (Est. 2020) provides 7 years of trusted foundational excellence from Playgroup through 7th class, with 3000+ happy families in Rayachoty.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://www.kinderjoyschool.co.in/" class="social-btn website" title="Official Website" aria-label="Official Website">
+              <i class="fas fa-globe"></i>
+            </a>
+            <a href="https://www.youtube.com/@kinderjoyschoolrayachoty3969" target="_blank" rel="noopener noreferrer" class="social-btn youtube" title="Watch our School YouTube Channel" aria-label="YouTube Channel">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://wa.me/919133554870" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp" title="Chat on WhatsApp" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="tel:+919133554870" class="social-btn phone" title="Call School" aria-label="Call">
+              <i class="fas fa-phone-alt"></i>
+            </a>
+            <a href="mailto:principal@kinderjoyschool.co.in" class="social-btn email" title="Email School" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About Our School</a></li>
+            <li><a href="index.html#academics">Academics</a></li>
+            <li><a href="notices.html">Notices &amp; Exam Timetables</a></li>
+            <li><a href="index.html#facilities">Campus Facilities</a></li>
+            <li><a href="index.html#gallery">School Gallery</a></li>
+            <li><a href="index.html#contact">Contact &amp; Map</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Classes</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#academics">Playgroup &amp; Nursery</a></li>
+            <li><a href="index.html#academics">LKG &amp; UKG</a></li>
+            <li><a href="index.html#academics">Class 1st to 3rd</a></li>
+            <li><a href="index.html#academics">Class 4th &amp; 5th</a></li>
+            <li><a href="index.html#academics">Class 6th &amp; 7th</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <p style="margin-bottom: 10px; color: #94a3b8;">
+            <i class="fas fa-map-marker-alt" style="color: var(--primary); margin-right: 8px;"></i>
+            51/161-1-1, N G O Colony, Kothapeta, Rayachoty, A.P. 516269
+          </p>
+          <p style="margin-bottom: 10px; color: #94a3b8;">
+            <i class="fas fa-phone" style="color: var(--secondary); margin-right: 8px;"></i>
+            <a href="tel:+919133554870" style="color: #fff;">+91 91335 54870</a>
+          </p>
+          <p style="margin-bottom: 10px; color: #94a3b8;">
+            <i class="fas fa-envelope" style="color: var(--accent-green); margin-right: 8px;"></i>
+            <a href="mailto:principal@kinderjoyschool.co.in" style="color: #fff;">principal@kinderjoyschool.co.in</a>
+          </p>
+          <p style="margin-bottom: 14px; color: #94a3b8;">
+            <i class="fas fa-clock" style="color: var(--accent-yellow); margin-right: 8px;"></i>
+            Mon–Sat: 9:00 AM – 5:00 PM
+          </p>
+
+          <div class="visitor-counter-box">
+            <span class="visitor-title"><i class="fas fa-users"></i> Total Visitors</span>
+            <div class="counter-embed">
+              <a href='https://www.acadoo.de/leistungen/ghostwriter-doktorarbeit/' class="counter-backlink">Dissertation schreiben</a>
+              <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=142643bef98cd75c711c7d37e63f3bbad8cf37da'></script>
+              <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1688189/t/5"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Kinder Joy E.M.U.P. School, Rayachoty. All Rights Reserved. Set Sail for Tomorrow.</p>
+        <p class="developer-credit">Developed with care by <a href="http://sswebtechsolutions.in/" target="_blank" rel="noopener noreferrer">SSWebTech</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Actions -->
+  <div class="floating-call">
+    <button id="scrollToTopBtn" class="float-btn scroll-top" title="Scroll to Top" aria-label="Scroll to Top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+    <a href="https://wa.me/919133554870" target="_blank" class="float-btn whatsapp" title="Chat on WhatsApp" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:+919133554870" class="float-btn phone" title="Call Us" aria-label="Call School">
+      <i class="fas fa-phone-alt"></i>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/notices.js"></script>
+</body>
+</html>

@@ -9,6 +9,7 @@
   <meta name="author" content="Kinder Joy E.M.U.P. School">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/png" href="assets/logo-icon.png">
+  <link rel="shortcut icon" type="image/png" href="assets/logo-icon.png">
   <link rel="canonical" href="https://www.kinderjoyschool.co.in/">
 
   <!-- Open Graph / Facebook / WhatsApp -->
@@ -51,7 +52,7 @@
       "longitude": "78.7461329"
     },
     "telephone": "+919133554870",
-    "email": "kinderjoyupemschool@gmail.com",
+    "email": "principal@kinderjoyschool.co.in",
     "openingHours": "Mo-Sa 09:00-17:00",
     "sameAs": [
       "https://www.youtube.com/@kinderjoyschoolrayachoty3969",
@@ -68,8 +69,9 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
-  <!-- Main Stylesheet -->
+  <!-- Main Stylesheet & Portal Styles -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/portal.css">
 </head>
 <body>
 
@@ -84,7 +86,7 @@
         <span class="ticker-divider">&bull;</span>
         <span class="ticker-item"><i class="fas fa-phone-alt"></i> <strong>Call Admission Office:</strong> <a href="tel:+919133554870">+91 91335 54870</a></span>
         <span class="ticker-divider">&bull;</span>
-        <span class="ticker-item"><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:kinderjoyupemschool@gmail.com">kinderjoyupemschool@gmail.com</a></span>
+        <span class="ticker-item"><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:principal@kinderjoyschool.co.in">principal@kinderjoyschool.co.in</a></span>
         <span class="ticker-divider">&bull;</span>
         <span class="ticker-item"><i class="fas fa-clock"></i> <strong>Office Timings:</strong> Monday – Saturday, 9:00 AM – 5:00 PM</span>
         <span class="ticker-divider">&bull;</span>
@@ -99,7 +101,7 @@
         <span class="ticker-divider">&bull;</span>
         <span class="ticker-item"><i class="fas fa-phone-alt"></i> <strong>Call Admission Office:</strong> <a href="tel:+919133554870">+91 91335 54870</a></span>
         <span class="ticker-divider">&bull;</span>
-        <span class="ticker-item"><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:kinderjoyupemschool@gmail.com">kinderjoyupemschool@gmail.com</a></span>
+        <span class="ticker-item"><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:principal@kinderjoyschool.co.in">principal@kinderjoyschool.co.in</a></span>
         <span class="ticker-divider">&bull;</span>
         <span class="ticker-item"><i class="fas fa-clock"></i> <strong>Office Timings:</strong> Monday – Saturday, 9:00 AM – 5:00 PM</span>
         <span class="ticker-divider">&bull;</span>
@@ -124,9 +126,9 @@
       </button>
 
       <nav class="nav-menu" id="navMenu">
-        <a href="#home" class="nav-link active">Home</a>
         <a href="#about" class="nav-link">About Us</a>
         <a href="#academics" class="nav-link">Academics</a>
+        <a href="#news" class="nav-link">Notices &amp; News</a>
         <a href="#facilities" class="nav-link">Facilities</a>
         <a href="#gallery" class="nav-link">Gallery</a>
         <a href="#admissions" class="nav-link">Admissions</a>
@@ -349,6 +351,51 @@
               <li><i class="fas fa-check-circle"></i> Debate, Quiz &amp; Cultural Competitions</li>
               <li><i class="fas fa-check-circle"></i> High-School Readiness &amp; Moral Values</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notices & News Section (Styled exactly like reference design) -->
+  <section class="section section-notices-news" id="news">
+    <div class="container">
+      <div class="notices-header-row">
+        <div>
+          <h2 class="notices-main-title">Notices &amp; News</h2>
+          <p class="notices-subtitle">Important updates and stories from Kinder Joy E.M.U.P. School.</p>
+        </div>
+        <div>
+          <span class="updates-count-pill" id="updatesCountPill">1 latest updates</span>
+        </div>
+      </div>
+
+      <!-- Interactive School Calendar & Events Component (Matched to Reference Screenshot) -->
+      <div class="calendar-events-wrapper">
+        <!-- Left: Interactive Calendar Card -->
+        <div class="calendar-box">
+          <div class="calendar-nav-header">
+            <button class="cal-nav-btn" id="calPrevBtn" aria-label="Previous Month">&larr;</button>
+            <h3 class="cal-month-title" id="calMonthTitle">NOVEMBER 2026 - 27</h3>
+            <button class="cal-nav-btn" id="calNextBtn" aria-label="Next Month">&rarr;</button>
+          </div>
+
+          <div class="calendar-weekdays">
+            <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span>
+          </div>
+
+          <div class="calendar-days-grid" id="calendarDaysGrid">
+            <!-- Injected by calendar logic -->
+          </div>
+        </div>
+
+        <!-- Right: Events Listing Card -->
+        <div class="events-panel-card">
+          <div class="events-panel-inner">
+            <h4 class="events-panel-heading" id="eventsPanelTitle">ALL EVENTS IN NOVEMBER</h4>
+            <div class="events-items-list" id="eventsItemsList">
+              <!-- Injected by calendar logic -->
+            </div>
           </div>
         </div>
       </div>
@@ -800,7 +847,7 @@
             <a href="tel:+919133554870" class="social-btn phone" title="Call School" aria-label="Call">
               <i class="fas fa-phone-alt"></i>
             </a>
-            <a href="mailto:kinderjoyupemschool@gmail.com" class="social-btn email" title="Email School" aria-label="Email">
+            <a href="mailto:principal@kinderjoyschool.co.in" class="social-btn email" title="Email School" aria-label="Email">
               <i class="fas fa-envelope"></i>
             </a>
             <a href="#contact" class="social-btn location" title="Campus Location" aria-label="Location">
@@ -861,7 +908,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Kinder Joy E.M.U.P. School, Rayachoty. All Rights Reserved. Set Sail for Tomorrow.</p>
+        <p>&copy; 2026 Kinder Joy E.M.U.P. School, Rayachoty. All Rights Reserved. &bull; <a href="login.html" style="color: #94a3b8; text-decoration: none;"><i class="fas fa-lock" style="font-size: 0.75rem;"></i> Staff Login</a></p>
         <p class="developer-credit">Developed with care by <a href="http://sswebtechsolutions.in/" target="_blank" rel="noopener noreferrer">SSWebTech</a></p>
       </div>
     </div>
@@ -881,6 +928,8 @@
   </div>
 
   <!-- JavaScript -->
+  <script src="js/gallery-loader.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/notices-home.js"></script>
 </body>
 </html>

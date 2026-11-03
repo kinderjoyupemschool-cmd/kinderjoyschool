@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Kinder Joy E.M.U.P. School</title>
+  <link rel="icon" type="image/png" href="assets/logo-icon.png">
+  <link rel="shortcut icon" type="image/png" href="assets/logo-icon.png">
+
+  <!-- Google Fonts: Matching index.html Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Main School Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/portal.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <style>
+    .status-msg {
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: none;
+    }
+    .status-success {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      display: block;
+    }
+    .status-error {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+      display: block;
+    }
+  </style>
+</head>
+<body class="dashboard-body">
+
+  <div class="dash-app">
+    
+    <!-- LEFT SIDEBAR (Matching Modern SaaS Reference) -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <div class="dash-brand">
+        <img src="assets/logo-icon.png" alt="Kinder Joy School Icon" class="dash-brand-icon">
+        <div class="dash-brand-text">
+          <span class="dash-brand-title">Kinder Joy</span>
+          <span class="dash-brand-sub">Admin Desk</span>
+        </div>
+        <button type="button" class="dash-sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close Sidebar">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="dash-nav-section">
+        <span class="dash-nav-label">Menu</span>
+        <ul class="dash-nav-list">
+          <li class="dash-nav-item">
+            <button type="button" class="admin-tab-btn active" data-tab="tabDashboard">
+              <i class="fas fa-th-large"></i>
+              <span>Dashboard</span>
+            </button>
+          </li>
+          <li class="dash-nav-item">
+            <button type="button" class="admin-tab-btn" data-tab="tabSchedule">
+              <i class="fas fa-calendar-alt"></i>
+              <span>Exam Timetables</span>
+            </button>
+          </li>
+          <li class="dash-nav-item">
+            <button type="button" class="admin-tab-btn" data-tab="tabNotice">
+              <i class="fas fa-bullhorn"></i>
+              <span>Publish Notice</span>
+            </button>
+          </li>
+          <li class="dash-nav-item">
+            <button type="button" class="admin-tab-btn" data-tab="tabManage">
+              <i class="fas fa-list-check"></i>
+              <span>Manage Records</span>
+            </button>
+          </li>
+          <li class="dash-nav-item">
+            <button type="button" class="admin-tab-btn" data-tab="tabGallery">
+              <i class="fas fa-images"></i>
+              <span>School Gallery</span>
+            </button>
+          </li>
+        </ul>
+
+        <span class="dash-nav-label">General</span>
+        <ul class="dash-nav-list">
+          <li class="dash-nav-item">
+            <a href="index.html" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+              <span>View Main Website</span>
+            </a>
+          </li>
+          <li class="dash-nav-item">
+            <a href="notices.html" target="_blank">
+              <i class="fas fa-clipboard-list"></i>
+              <span>Notices &amp; Exams</span>
+            </a>
+          </li>
+          <li class="dash-nav-item">
+            <button type="button" id="logoutBtn" style="color: #ef4444;">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- MAIN DASHBOARD CONTENT -->
+    <main class="dash-main">
+      
+      <!-- TOPBAR -->
+      <header class="dash-topbar">
+        <div class="dash-topbar-left">
+          <button type="button" class="dash-mobile-nav-toggle" id="sidebarToggle" aria-label="Toggle Sidebar Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <!-- Mobile School Brand Logo -->
+          <a href="admin.html" class="dash-topbar-mobile-brand" aria-label="Kinder Joy Admin Home">
+            <img src="assets/logo-icon.png" alt="Kinder Joy Emblem">
+            <span class="mobile-brand-title">Kinder Joy</span>
+          </a>
+
+          <div class="dash-search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search notices, classes, exams..." aria-label="Search">
+            <span class="dash-search-kbd">⌘K</span>
+          </div>
+        </div>
+
+        <div class="dash-topbar-actions">
+          <div class="dash-user-profile">
+            <div class="dash-avatar" title="Principal Desk">P</div>
+            <div class="dash-user-info">
+              <span class="dash-user-name">Principal Desk</span>
+              <span class="dash-user-email">principal@kinderjoyschool.co.in</span>
+            </div>
+          </div>
+
+          <!-- Topbar Logout Icon Button -->
+          <button type="button" class="dash-topbar-logout-btn" id="topbarLogoutBtn" title="Logout from Staff Portal" aria-label="Logout">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- CONTENT BODY -->
+      <div class="dash-content">
+        
+        <div id="actionStatusMsg" class="status-msg"></div>
+
+        <!-- TAB: DASHBOARD OVERVIEW (Matching SaaS Reference) -->
+        <section id="tabDashboard" class="tab-pane">
+          
+          <div class="dash-page-header">
+            <div class="dash-title-group">
+              <h1>Dashboard</h1>
+              <p>Plan, publish, and manage school notices and examination timetables with ease.</p>
+            </div>
+            <div class="dash-header-btns">
+              <button type="button" class="btn-dash-primary" id="btnQuickCreateNotice">
+                <i class="fas fa-plus"></i> Post Notice
+              </button>
+              <button type="button" class="btn-dash-secondary" id="btnQuickCreateSchedule">
+                <i class="fas fa-calendar-plus"></i> New Timetable
+              </button>
+            </div>
+          </div>
+
+          <!-- 4 KEY STATS METRICS (Matching Reference Top 4 Cards) -->
+          <div class="dash-metrics-grid">
+            
+            <!-- Card 1: Total Classes (Featured Green) -->
+            <div class="dash-metric-card card-featured">
+              <div class="metric-header">
+                <span class="metric-title">Active Classes</span>
+                <span class="metric-badge-icon"><i class="fas fa-arrow-up"></i></span>
+              </div>
+              <div class="metric-value">11</div>
+              <div class="metric-footer">
+                <i class="fas fa-check-circle"></i> Playgroup to Class 7
+              </div>
+            </div>
+
+            <!-- Card 2: Published Notices -->
+            <div class="dash-metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Published Notices</span>
+                <span class="metric-badge-icon"><i class="fas fa-arrow-up"></i></span>
+              </div>
+              <div class="metric-value" id="statNoticesCount">0</div>
+              <div class="metric-footer" style="color: #059669;">
+                <i class="fas fa-clock"></i> Live on Homepage
+              </div>
+            </div>
+
+            <!-- Card 3: Active Schedules -->
+            <div class="dash-metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Exam Timetables</span>
+                <span class="metric-badge-icon"><i class="fas fa-arrow-up"></i></span>
+              </div>
+              <div class="metric-value" id="statSchedulesCount">0</div>
+              <div class="metric-footer" style="color: #0284c7;">
+                <i class="fas fa-sync-alt"></i> Real-time sync
+              </div>
+            </div>
+
+            <!-- Card 4: Assessment Terms -->
+            <div class="dash-metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Assessment Terms</span>
+                <span class="metric-badge-icon"><i class="fas fa-arrow-up"></i></span>
+              </div>
+              <div class="metric-value">6</div>
+              <div class="metric-footer" style="color: #6b7280;">
+                <i class="fas fa-file-alt"></i> FA-1 to SA-2
+              </div>
+            </div>
+
+          </div>
+
+          <!-- MIDDLE LAYOUT GRID: Left (Feed) & Right (Progress + Real-time Clock) -->
+          <div class="dash-layout-grid" style="align-items: start;">
+            
+            <!-- Left Column: Recent Circulars -->
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+              
+              <!-- Quick List of Recent Notices / Circulars (Displays 3 with smooth vertical scrolling) -->
+              <div class="dash-panel">
+                <div class="panel-header">
+                  <div>
+                    <h3 class="panel-title">Recent Circulars &amp; Updates</h3>
+                    <div class="panel-sub">Directly published to the public portal</div>
+                  </div>
+                  <button type="button" class="admin-tab-btn" data-tab="tabNotice" style="font-size: 0.85rem; font-weight: 800; color: #0284c7; background: none; border: none; cursor: pointer;">
+                    + New Notice
+                  </button>
+                </div>
+
+                <div id="quickRecentNoticesList" class="dash-feed-list scrollable-feed">
+                  <!-- Injected dynamically -->
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Column: School Session Progress + Live Session Timer -->
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+              
+              <!-- Real-Time Session Clock Widget (Academic Navy Gradient matching index hero) -->
+              <div class="time-tracker-card">
+                <div class="tracker-title">
+                  <i class="fas fa-clock"></i> School Session Clock
+                </div>
+                <div class="tracker-timer" id="livePortalClock">
+                  10:30:00 AM
+                </div>
+                <div class="tracker-actions">
+                  <a href="notices.html" target="_blank" class="tracker-btn" title="View Student Portal">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                  <a href="index.html" target="_blank" class="tracker-btn" title="View Homepage">
+                    <i class="fas fa-home"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Quick Reminder Card (Matching Reference Reminder) -->
+              <div class="dash-panel" style="background: #ffffff; border-left: 4px solid var(--dash-accent-gold);">
+                <h4 style="margin: 0 0 6px 0; font-family: 'Outfit', sans-serif; font-size: 1rem; font-weight: 700; color: #0f1c2e;">
+                  <i class="fas fa-info-circle" style="color: var(--dash-accent-gold); margin-right: 6px;"></i> Staff Notice
+                </h4>
+                <p style="font-size: 0.84rem; color: #64748b; margin: 0 0 16px 0; line-height: 1.55;">
+                  All updates posted here synchronize instantly with the public homepage calendar and student examination sheets.
+                </p>
+                <button type="button" class="btn-dash-secondary" id="btnGoToSchedules" style="width: 100%; justify-content: center; font-size: 0.85rem; padding: 10px;">
+                  <i class="fas fa-calendar-check"></i> Manage Exam Timetables
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        <!-- TAB: CLASS EXAM SCHEDULES FORM -->
+        <section id="tabSchedule" class="tab-pane" style="display: none;">
+          <div class="dash-panel compact-panel">
+            <div class="panel-header" style="margin-bottom: 14px;">
+              <div>
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.35rem; font-weight: 800; color: #0f1c2e; margin: 0 0 2px 0;">
+                  Publish / Update Class Examination Timetable
+                </h2>
+                <div class="panel-sub" style="font-size: 0.82rem;">Configure class timetables for FA-1 to SA-2 under any academic year.</div>
+              </div>
+            </div>
+
+            <form id="scheduleForm">
+              <div class="admin-form-row compact-form-row">
+                <div class="admin-form-group">
+                  <label class="admin-form-label" for="schedAcademicYear">Academic Year</label>
+                  <input type="text" id="schedAcademicYear" class="admin-form-input compact-input" value="2026-2027" placeholder="e.g. 2026-2027" required>
+                </div>
+
+                <div class="admin-form-group">
+                  <label class="admin-form-label" for="schedClass">Target Class</label>
+                  <select id="schedClass" class="admin-form-select compact-input" required>
+                    <option value="" disabled selected>-- Select Class --</option>
+                    <option value="Playgroup">Playgroup</option>
+                    <option value="Nursery">Nursery</option>
+                    <option value="LKG">LKG</option>
+                    <option value="UKG">UKG</option>
+                    <option value="Class 1">Class 1</option>
+                    <option value="Class 2">Class 2</option>
+                    <option value="Class 3">Class 3</option>
+                    <option value="Class 4">Class 4</option>
+                    <option value="Class 5">Class 5</option>
+                    <option value="Class 6">Class 6</option>
+                    <option value="Class 7">Class 7</option>
+                  </select>
+                </div>
+
+                <div class="admin-form-group">
+                  <label class="admin-form-label" for="schedExamType">Assessment Type</label>
+                  <select id="schedExamType" class="admin-form-select compact-input" required>
+                    <option value="" disabled selected>-- Select Assessment --</option>
+                    <option value="FA-1">FA-1 (Formative Assessment 1)</option>
+                    <option value="FA-2">FA-2 (Formative Assessment 2)</option>
+                    <option value="FA-3">FA-3 (Formative Assessment 3)</option>
+                    <option value="FA-4">FA-4 (Formative Assessment 4)</option>
+                    <option value="SA-1">SA-1 (Summative Assessment 1 / Half-Yearly)</option>
+                    <option value="SA-2">SA-2 (Summative Assessment 2 / Annual)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="admin-form-group" style="margin-bottom: 14px;">
+                <label class="admin-form-label" for="schedTitle">Schedule Title / Heading</label>
+                <input type="text" id="schedTitle" class="admin-form-input compact-input" placeholder="Select Class and Assessment above..." required>
+              </div>
+
+              <!-- Subject Rows Matrix -->
+              <div style="margin: 18px 0 16px 0;">
+                <div class="matrix-header-bar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 10px; flex-wrap: wrap;">
+                  <div>
+                    <h4 style="margin: 0; font-family: 'Outfit', sans-serif; font-size: 1.05rem; color: #0f1c2e; font-weight: 800;">Exam Subjects &amp; Syllabus Matrix</h4>
+                    <small style="color: #64748b; font-size: 0.8rem;">Enter dates, days, timings, and syllabus portions for this examination.</small>
+                  </div>
+                  <button type="button" id="addRowBtn" class="btn-add-subject" style="background: #ecfdf5; color: #065f46; border: 1.5px solid #a7f3d0; padding: 7px 16px; border-radius: 9999px; font-weight: 700; font-size: 0.82rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                    <i class="fas fa-plus"></i> Add Subject Row
+                  </button>
+                </div>
+
+                <div id="matrixRowsContainer">
+                  <!-- Dynamically injected rows -->
+                </div>
+              </div>
+
+              <div class="admin-form-group" style="margin-bottom: 16px;">
+                <label class="admin-form-label" for="schedInstructions">Guidelines &amp; Instructions (One per line)</label>
+                <textarea id="schedInstructions" rows="3" class="admin-form-textarea compact-textarea">Students must report by 09:15 AM in proper uniform.
+Bring complete stationery pouch; borrowing is strictly prohibited.
+Parents must check and sign the assessment diary daily.</textarea>
+              </div>
+
+              <button type="submit" class="btn-dash-primary" style="padding: 11px 24px; font-size: 0.92rem;">
+                <i class="fas fa-check-circle"></i> Save &amp; Publish Timetable Live
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <!-- TAB: POST NOTICES & NEWS -->
+        <section id="tabNotice" class="tab-pane" style="display: none;">
+          <div class="dash-panel">
+            <div class="panel-header">
+              <div>
+                <h2 style="font-family: 'Fredoka', cursive; font-size: 1.5rem; color: #0f2c59; margin: 0 0 4px 0;">
+                  Publish Notice or Event to Homepage
+                </h2>
+                <div class="panel-sub">Notices immediately appear on the homepage calendar and events feed with live badges.</div>
+              </div>
+            </div>
+
+            <form id="noticeForm">
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="noticeTitle">Notice / Event Title</label>
+                <input type="text" id="noticeTitle" class="admin-form-input" placeholder="e.g. Science & Art Talent Exhibition 2026" required>
+              </div>
+
+              <div class="admin-form-row">
+                <div class="admin-form-group">
+                  <label class="admin-form-label" for="noticeCategory">Category / Type</label>
+                  <select id="noticeCategory" class="admin-form-select" required>
+                    <option value="Special" selected>SPECIAL (Events &amp; Celebrations)</option>
+                    <option value="Exam">EXAM (Exam Circulars)</option>
+                    <option value="Holiday">HOLIDAY (School Holidays)</option>
+                    <option value="Sports">SPORTS (Sports &amp; Games)</option>
+                    <option value="General">GENERAL (General Announcement)</option>
+                    <option value="Urgent">URGENT (Urgent Alert)</option>
+                  </select>
+                </div>
+
+                <div class="admin-form-group">
+                  <label class="admin-form-label" for="noticeDate">Event / Notice Date</label>
+                  <input type="date" id="noticeDate" class="admin-form-input" required>
+                </div>
+              </div>
+
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="noticeContent">Details / Circular Content</label>
+                <textarea id="noticeContent" rows="4" class="admin-form-textarea" placeholder="Detailed description of the event or circular..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-dash-primary" style="padding: 14px 28px; font-size: 1rem;">
+                <i class="fas fa-paper-plane"></i> Publish Notice to Homepage Live
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <!-- TAB: MANAGE RECORDS (Side-by-Side Responsive Layout) -->
+        <section id="tabManage" class="tab-pane" style="display: none;">
+          <div class="manage-split-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; align-items: start;">
+            
+            <!-- Left Column: Manage Active Notices -->
+            <div class="dash-panel" style="margin: 0;">
+              <div class="panel-header" style="margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #0f1c2e; margin: 0 0 4px 0; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-bullhorn" style="color: #0a4f8a; font-size: 1.1rem;"></i> Manage Active Notices
+                  </h2>
+                  <div class="panel-sub" style="font-size: 0.82rem;">Inspect, edit, or remove live homepage circulars.</div>
+                </div>
+              </div>
+              <div id="manageNoticesList">
+                <!-- Injected by js/admin.js -->
+              </div>
+            </div>
+
+            <!-- Right Column: Manage Active Class Exam Timetables -->
+            <div class="dash-panel" style="margin: 0;">
+              <div class="panel-header" style="margin-bottom: 18px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #0f1c2e; margin: 0 0 4px 0; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-calendar-alt" style="color: #c89524; font-size: 1.1rem;"></i> Manage Exam Timetables
+                  </h2>
+                  <div class="panel-sub" style="font-size: 0.82rem;">Inspect, edit, or delete published class schedules.</div>
+                </div>
+              </div>
+              <div id="manageSchedulesList">
+                <!-- Injected by js/admin.js -->
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- TAB: CAMPUS GALLERY MANAGER -->
+        <section id="tabGallery" class="tab-pane" style="display: none;">
+          <div class="manage-split-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; align-items: start;">
+            
+            <!-- Left: Upload Photo -->
+            <div class="dash-panel" style="margin: 0;">
+              <div class="panel-header" style="margin-bottom: 16px;">
+                <div>
+                  <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #0f1c2e; margin: 0 0 4px 0; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-camera-retro" style="color: #0284c7;"></i> Add Photo to School Gallery
+                  </h2>
+                  <div class="panel-sub" style="font-size: 0.82rem;">Uploaded photos appear immediately in the homepage gallery.</div>
+                </div>
+              </div>
+
+              <form id="galleryUploadForm">
+                <div class="admin-form-group">
+                  <label class="admin-form-label" for="galTitle">Photo Title</label>
+                  <input type="text" id="galTitle" class="admin-form-input" placeholder="e.g. Science Exhibition Working Models 2026" required>
+                </div>
+
+                <div class="admin-form-row">
+                  <div class="admin-form-group">
+                    <label class="admin-form-label" for="galCategory">Event Category</label>
+                    <select id="galCategory" class="admin-form-select" required>
+                      <option value="annual-day" selected>Annual Day Celebrations</option>
+                      <option value="science-day">Science Fair &amp; Exhibits</option>
+                      <option value="award-ceremony">Awards &amp; Felicitations</option>
+                      <option value="sports">Sports &amp; Fitness Meets</option>
+                    </select>
+                  </div>
+
+                  <div class="admin-form-group">
+                    <label class="admin-form-label" for="galPhotoFile">Select Image File</label>
+                    <input type="file" id="galPhotoFile" class="admin-form-input" accept="image/*" required>
+                  </div>
+                </div>
+
+                <div class="admin-form-group">
+                  <label class="admin-form-label" for="galCaption">Caption / Brief Note (Optional)</label>
+                  <textarea id="galCaption" rows="2" class="admin-form-textarea" placeholder="Brief note about the celebration or student achievement..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-dash-primary" style="padding: 10px 22px; font-size: 0.9rem; margin-top: 8px; background: #0284c7;">
+                  <i class="fas fa-upload"></i> Upload &amp; Display on Website
+                </button>
+              </form>
+            </div>
+
+            <!-- Right: Manage Uploaded Photos -->
+            <div class="dash-panel" style="margin: 0;">
+              <div class="panel-header" style="margin-bottom: 16px;">
+                <div>
+                  <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 800; color: #0f1c2e; margin: 0 0 4px 0;">
+                    Uploaded Event Photos
+                  </h2>
+                  <div class="panel-sub" style="font-size: 0.82rem;">Photos currently visible on the homepage gallery carousel.</div>
+                </div>
+              </div>
+              <div id="manageGalleryList" style="display: flex; flex-direction: column; gap: 12px; max-height: 480px; overflow-y: auto;">
+                <!-- Injected dynamically -->
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Sidebar Overlay for Mobile Touch Backdrop -->
+  <div class="dash-sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Modal for Editing Notice -->
+  <div id="editNoticeModal" class="login-modal" style="display: none; position: fixed; inset: 0; background: rgba(15, 28, 46, 0.65); backdrop-filter: blur(4px); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: #ffffff; width: 100%; max-width: 580px; border-radius: 16px; box-shadow: 0 20px 45px rgba(0,0,0,0.2); overflow: hidden; animation: popIn 0.25s ease;">
+      <div style="padding: 18px 24px; background: linear-gradient(135deg, #0a4f8a, #073863); color: #ffffff; display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="margin: 0; font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+          <i class="fas fa-edit" style="color: #c89524;"></i> Edit Notice / Circular
+        </h3>
+        <button type="button" id="closeEditModalBtn" style="background: none; border: none; color: #ffffff; font-size: 1.2rem; cursor: pointer; opacity: 0.85;">&times;</button>
+      </div>
+
+      <form id="editNoticeForm" style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
+        <input type="hidden" id="editNoticeId">
+        
+        <div class="admin-form-group" style="margin: 0;">
+          <label class="admin-form-label" for="editNoticeTitle">Notice / Event Title</label>
+          <input type="text" id="editNoticeTitle" class="admin-form-input" required>
+        </div>
+
+        <div class="admin-form-row" style="margin: 0;">
+          <div class="admin-form-group" style="margin: 0;">
+            <label class="admin-form-label" for="editNoticeCategory">Category / Type</label>
+            <select id="editNoticeCategory" class="admin-form-select" required>
+              <option value="Special">SPECIAL (Events &amp; Celebrations)</option>
+              <option value="Exam">EXAM (Exam Circulars)</option>
+              <option value="Holiday">HOLIDAY (School Holidays)</option>
+              <option value="Sports">SPORTS (Sports &amp; Games)</option>
+              <option value="General">GENERAL (General Announcement)</option>
+              <option value="Urgent">URGENT (Urgent Alert)</option>
+            </select>
+          </div>
+
+          <div class="admin-form-group" style="margin: 0;">
+            <label class="admin-form-label" for="editNoticeDate">Event / Notice Date</label>
+            <input type="date" id="editNoticeDate" class="admin-form-input" required>
+          </div>
+        </div>
+
+        <div class="admin-form-group" style="margin: 0;">
+          <label class="admin-form-label" for="editNoticeContent">Details / Circular Content</label>
+          <textarea id="editNoticeContent" rows="4" class="admin-form-textarea" required></textarea>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 8px;">
+          <button type="button" id="cancelEditBtn" class="btn-dash-secondary" style="padding: 10px 18px; font-size: 0.88rem;">Cancel</button>
+          <button type="submit" class="btn-dash-primary" style="padding: 10px 22px; font-size: 0.88rem; background: #0a4f8a;">
+            <i class="fas fa-save"></i> Save Changes
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
