@@ -1,0 +1,58 @@
+const express = require('express');
+const router = express.Router();
+const jwt = require('jsonwebtoken');
+const Admin = require('../models/Admin');
+
+// POST /api/auth/login
+router.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ success: false, message: 'Please provide email and password' });
+    }
+
+    const defaultEmail = (process.env.ADMIN_EMAIL || 'principal@kinderjoyschool.co.in').toLowerCase();
+    const defaultPassword = process.env.ADMIN_PASSWORD || 'admin@kinderjoy2026';
+
+    let admin = null;
+    let isMatch = false;
+
+    try {
+      admin = await Admin.findOne({ email: email.toLowerCase() });
+      if (admin) {
+        isMatch = await admin.matchPassword(password);
+      }
+    } catch (dbErr) {
+      // Memory fallback if DB offline
+    }
+
+    if (!isMatch && email.toLowerCase() === defaultEmail && password === defaultPassword) {
+      isMatch = true;
+      admin = { _id: 'master-admin', email: defaultEmail, name: 'Principal / Admin' };
+    }
+
+    if (!isMatch) {
+      return res.status(401).json({ success: false, message: 'Invalid email or password' });
+    }
+
+    const token = jwt.sign(
+      { id: admin._id, email: admin.email },
+      process.env.JWT_SECRET || 'kinderjoy_super_secret_jwt_key_2026',
+      { expiresIn: '7d' }
+    );
+
+    res.json({
+      success: true,
+      token,
+      admin: {
+        email: admin.email,
+        name: admin.name || 'Principal / Admin'
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+module.exports = router;
+
