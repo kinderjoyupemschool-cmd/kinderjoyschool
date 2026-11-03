@@ -73,22 +73,13 @@
           }, 600);
         } else {
           loginSubmitBtn.disabled = false;
-          loginSubmitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Login to Dashboard';
+          loginSubmitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In to Dashboard';
           showAlert(data.message || 'Invalid credentials. Please verify your email and password.');
         }
       } catch (err) {
-        // Fallback for offline mode or serverless static view
-        if (email === 'principal@kinderjoyschool.co.in' && password === 'admin@kinderjoy2026') {
-          localStorage.setItem(TOKEN_KEY, 'demo_token_authenticated');
-          showAlert('Authenticated successfully! Redirecting...', 'success');
-          setTimeout(() => {
-            window.location.href = 'admin.html';
-          }, 600);
-        } else {
-          loginSubmitBtn.disabled = false;
-          loginSubmitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Login to Dashboard';
-          showAlert('Invalid credentials. Default: principal@kinderjoyschool.co.in / admin@kinderjoy2026');
-        }
+        loginSubmitBtn.disabled = false;
+        loginSubmitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In to Dashboard';
+        showAlert('Unable to connect to the authentication server. Please check your internet connection.');
       }
     });
   }
